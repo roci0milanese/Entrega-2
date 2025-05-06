@@ -96,11 +96,6 @@ foreach (string str in array3)
 
 
 
-// 5- Cargar un array de 5 números. Crear un segundo array con los mismos valores pero 
-// Esta incompleto (preguntar)
-
-
-
 
 // Ejercicios con Arrays de 2 Dimensiones (Matrices)
 
@@ -283,40 +278,31 @@ for (int i = 0; i < 3; i++) // Recorre las filas
 
 
 // 3- Generar una lista con 10 números aleatorios entre 1 y 100. Luego pedir al usuario un valor límite y eliminar todos los elementos menores a ese valor. Mostrar la lista resultante.
-{
-    Random random = new Random();
-    List<int> numeros = new List<int>();
-
-    
-    for (int i = 0; i < 10; i++)
     {
-        int numero = random.Next(1, 101);
-        numeros.Add(numero);
-    }
+       
+        List<int> numeros = new List<int>();
+        Random random = new Random();
 
-  
-    Console.WriteLine("Lista original:");
-    for (int i = 0; i < numeros.Count; i++) // count es como el lenght
-    {
-        Console.Write(numeros[i] + " ");
-    }
-
-    Console.WriteLine("Ingrese un valor límite: ");
-    int limite = int.Parse(Console.ReadLine());
-
-   
-    List<int> nuevaLista = new List<int>();
-    for (int i = 0; i < numeros.Count; i++)
-    {
-        if (numeros[i] >= limite)
+        for (int i = 0; i < 10; i++)
         {
-            nuevaLista.Add(numeros[i]);
+            numeros.Add(random.Next(1, 101));
+        }
+
+        Console.WriteLine("Lista original:");
+        foreach (int n in numeros)
+        {
+            Console.Write(n + " ");
+        }
+
+        Console.WriteLine("Ingresá un valor límite:");
+        int limite = int.Parse(Console.ReadLine());
+
+        numeros.RemoveAll(n => n < limite);
+
+        Console.WriteLine("Lista resultante:");
+        foreach (int n in numeros)
+        {
+            Console.Write(n + " ");
         }
     }
 
-    Console.WriteLine("Lista después de eliminar los menores al límite:");
-    for (int i = 0; i < nuevaLista.Count; i++)
-    {
-        Console.Write(nuevaLista[i] + " ");
-    }
-}
